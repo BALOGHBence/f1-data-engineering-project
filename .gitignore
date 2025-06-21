@@ -172,3 +172,9 @@ cython_debug/
 
 #  This is a system file that is created by macOS to store custom attributes of a folder.
 .DS_Store
+
+# Scratch directory for temporary files
+scratch/**
+!scratch/README.md
+
+.databricks/
