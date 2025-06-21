@@ -56,7 +56,7 @@ Historical data about F1 races is available at https://ergast.com/mrd/. To get t
    Note that the default job from the template has a schedule that runs every day
    (defined in resources/my_project.job.yml). The schedule
    is paused when deploying in development mode (see
-   https://docs.databricks.com/dev-tools/bundles/deployment-modes.html).
+   <https://docs.databricks.com/dev-tools/bundles/deployment-modes.html>).
 
 5. To run a job or pipeline, use the "run" command:
 
@@ -65,8 +65,8 @@ Historical data about F1 races is available at https://ergast.com/mrd/. To get t
    ```
 
 6. Optionally, install developer tools such as the Databricks extension for Visual Studio Code from
-   https://docs.databricks.com/dev-tools/vscode-ext.html.
+   <https://docs.databricks.com/dev-tools/vscode-ext.html>.
 
 7. For documentation on the Databricks asset bundles format used
    for this project, and for CI/CD configuration, see
-   https://docs.databricks.com/dev-tools/bundles/index.html.
+   <https://docs.databricks.com/dev-tools/bundles/index.html>.
