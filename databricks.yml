@@ -1,5 +1,6 @@
-# This is a Databricks asset bundle definition for my_project.
+# This is a Databricks asset bundle definition.
 # See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+
 bundle:
   name: f1_project
   uuid: 9836fa05-0917-4013-b751-8bac0c919209
