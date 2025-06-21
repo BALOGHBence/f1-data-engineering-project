@@ -3,24 +3,34 @@ name: Deploy Dash App
 on:
 
   push:
+  
     branches:
       - 'main'
       - 'dev'
       - 'test'
 
 jobs:
-  install-dbx-cli:
-    name: Install Databricks CLI
+
+  deploy:
+
+    name: Deploy Application
+
     runs-on: ubuntu-latest
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
     steps:
       - name: Install Databricks CLI
         run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
 
-  deploy:
-    runs-on: ubuntu-latest
+      - name: Authenticate Databricks CLI
+        run: |
+          databricks configure 
+            --host $DATABRICKS_HOST \
+            --token $DATABRICKS_TOKEN
 
-    steps:
       - name: Deploy the App
         run: databricks apps deploy f1-app-${{ github.ref_name }} --source-code-path /Workspace/Users/bence.balogh@datapao.com/f1-data-engineering-project/app
 
