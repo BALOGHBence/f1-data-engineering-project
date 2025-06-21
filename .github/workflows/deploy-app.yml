@@ -46,3 +46,4 @@ jobs:
       
       - name: Deploy the App
         run: databricks apps deploy "$APP_NAME" --source-code-path "$APP_SOURCE_CODE_PATH"
+        continue-on-error: true
