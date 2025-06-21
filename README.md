@@ -22,3 +22,51 @@ Historical data about F1 races is available at https://ergast.com/mrd/. To get t
 ### Project requirements
 
 ### Solution architecture
+
+## Deployment Workflow
+
+1. Install the Databricks CLI from https://docs.databricks.com/dev-tools/cli/databricks-cli.html
+
+2. Authenticate to your Databricks workspace, if you have not done so already:
+
+    ``` shell
+    databricks configure
+    ```
+
+3. To deploy a development copy of this project, type:
+
+    ``` shell
+    databricks bundle deploy --target dev
+    ```
+
+    (Note that "dev" is the default target, so the `--target` parameter
+    is optional here.)
+
+    This deploys everything that's defined for this project.
+    For example, the default template would deploy a job called
+    `[dev yourname] my_project_job` to your workspace.
+    You can find that job by opening your workpace and clicking on **Workflows**.
+
+4. Similarly, to deploy a production copy, type:
+
+   ``` shell
+   databricks bundle deploy --target prod
+   ```
+
+   Note that the default job from the template has a schedule that runs every day
+   (defined in resources/my_project.job.yml). The schedule
+   is paused when deploying in development mode (see
+   https://docs.databricks.com/dev-tools/bundles/deployment-modes.html).
+
+5. To run a job or pipeline, use the "run" command:
+
+   ``` shell
+   databricks bundle run
+   ```
+
+6. Optionally, install developer tools such as the Databricks extension for Visual Studio Code from
+   https://docs.databricks.com/dev-tools/vscode-ext.html.
+
+7. For documentation on the Databricks asset bundles format used
+   for this project, and for CI/CD configuration, see
+   https://docs.databricks.com/dev-tools/bundles/index.html.
