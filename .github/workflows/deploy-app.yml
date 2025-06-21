@@ -1,9 +1,8 @@
-name: Deploy Dash App
+name: Deploy Databricks App
 
 on:
 
   push:
-
     branches:
       - 'main'
       - 'dev'
@@ -12,16 +11,14 @@ on:
 jobs:
 
   deploy:
-
     name: Deploy Application
-
     runs-on: ubuntu-latest
 
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
       BRANCH_NAME: ${{ github.ref_name }}
-      SOURCE_CODE_PATH: /Workspace/Users/bence.balogh@datapao.com/f1-data-engineering-project/app
+      APP_SOURCE_CODE_PATH: /Workspace/Users/bence.balogh@datapao.com/databricks_apps/f1-app
       APP_NAME: f1-app
 
     steps:
@@ -34,8 +31,8 @@ jobs:
             --host $DATABRICKS_HOST \
             --token $DATABRICKS_TOKEN
 
+      - name: Sync App Source Code
+        run: databricks sync ./app "$APP_SOURCE_CODE_PATH"
+      
       - name: Deploy the App
-        run: |
-          databricks apps \
-            deploy "$APP_NAME" \
-            --source-code-path "$SOURCE_CODE_PATH"
+        run: databricks apps deploy "$APP_NAME" --source-code-path "$APP_SOURCE_CODE_PATH"
