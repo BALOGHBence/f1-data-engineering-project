@@ -33,6 +33,14 @@ jobs:
             --host $DATABRICKS_HOST \
             --token $DATABRICKS_TOKEN
 
+      - name: Deploy Databricks Asset Bundle (Dev)
+        if: github.ref_name == 'dev'
+        run: databricks bundle deploy -t dev
+
+      - name: Deploy Databricks Asset Bundle (Prod)
+        if: github.ref_name == 'main'
+        run: databricks bundle deploy -t prod
+
       - name: Sync App Source Code
         run: databricks sync ./app "$APP_SOURCE_CODE_PATH"
       
