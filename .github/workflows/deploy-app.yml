@@ -1,0 +1,26 @@
+name: Deploy Dash App
+
+on:
+
+  push:
+    branches:
+      - 'main'
+      - 'dev'
+      - 'test'
+
+jobs:
+  install-dbx-cli:
+    name: Install Databricks CLI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Databricks CLI
+        run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy the App
+        run: echo Hello, world!
+
