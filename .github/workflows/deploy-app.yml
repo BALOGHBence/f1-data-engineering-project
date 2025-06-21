@@ -22,6 +22,8 @@ jobs:
       APP_NAME: f1-app
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: Install Databricks CLI
         run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
 
@@ -32,7 +34,7 @@ jobs:
             --token $DATABRICKS_TOKEN
 
       - name: Sync App Source Code
-        run: databricks sync /app "$APP_SOURCE_CODE_PATH"
+        run: databricks sync ./app "$APP_SOURCE_CODE_PATH"
       
       - name: Deploy the App
         run: databricks apps deploy "$APP_NAME" --source-code-path "$APP_SOURCE_CODE_PATH"
