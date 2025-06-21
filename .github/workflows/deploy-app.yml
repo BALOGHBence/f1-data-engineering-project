@@ -35,6 +35,6 @@ jobs:
             --token $DATABRICKS_TOKEN
 
       - name: Deploy the App
-        run: databricks apps deploy \
-            "$APP_NAME" \
+        run: databricks apps \
+            deploy "$APP_NAME" \
             --source-code-path "$SOURCE_CODE_PATH"
