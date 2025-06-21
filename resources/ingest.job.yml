@@ -4,7 +4,7 @@ resources:
 
     ingest:
       name: "f1 ingest"
-      max_concurrent_runs: 3
+      max_concurrent_runs: 10
 
       tasks:
         - task_key: set_the_scene
