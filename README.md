@@ -17,7 +17,7 @@
 
 ### Source data
 
-Historical data about F1 races is available at https://ergast.com/mrd/. To get the data, you can use the API or download the files manually as a compressed folder alongside a user manual and the entity relationship diagram. All of this can be found in the `data` folder of this repository. Before using this data, you should read the 'terms ans conditions' section of the Ergast API.
+Historical data about F1 races is available at <https://ergast.com/mrd/>. To get the data, you can use the API or download the files manually as a compressed folder alongside a user manual and the entity relationship diagram. All of this can be found in the `data` folder of this repository. Before using this data, you should read the 'terms ans conditions' section of the Ergast API.
 
 ### Project requirements
 
@@ -25,7 +25,7 @@ Historical data about F1 races is available at https://ergast.com/mrd/. To get t
 
 ## Deployment Workflow
 
-1. Install the Databricks CLI from https://docs.databricks.com/dev-tools/cli/databricks-cli.html
+1. Install the Databricks CLI from <https://docs.databricks.com/dev-tools/cli/databricks-cli.html>
 
 2. Authenticate to your Databricks workspace, if you have not done so already:
 
