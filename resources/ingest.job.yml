@@ -1,0 +1,75 @@
+resources:
+
+  jobs:
+
+    ingest:
+      name: "f1 ingest"
+      max_concurrent_runs: 3
+
+      tasks:
+        - task_key: set_the_scene
+          notebook_task:
+            notebook_path: ../notebooks/config.ipynb
+        
+        - task_key: drop_all
+          depends_on:
+            - task_key: set_the_scene
+          notebook_task:
+            notebook_path: ../notebooks/drop_all_tables.ipynb
+        
+        - task_key: ingest_circuits_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/1. Ingest Circuits File.ipynb
+        
+        - task_key: ingest_constructors_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/3. Ingest Constructors File.ipynb
+        
+        - task_key: ingest_drivers_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/4. Ingest Drivers File.ipynb
+        
+        - task_key: ingest_lap_times_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/8. Ingest Lap Times File.ipynb
+        
+        - task_key: ingest_pit_stops_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/6. Ingest Pit Stops File.ipynb
+        
+        - task_key: ingest_qualifying_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/7. Ingest Qualifying File.ipynb
+        
+        - task_key: ingest_races_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/2. Ingest Races File.ipynb
+        
+        - task_key: ingest_results_file
+          depends_on:
+            - task_key: drop_all
+          notebook_task:
+            notebook_path: ../notebooks/preproc/5. Ingest Results File.ipynb
+      
+      queue:
+        enabled: false
+      
+      parameters:
+        - name: env
+          default: dev
+      
+      performance_target: PERFORMANCE_OPTIMIZED
