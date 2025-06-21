@@ -32,7 +32,7 @@ jobs:
             --token $DATABRICKS_TOKEN
 
       - name: Sync App Source Code
-        run: databricks sync ./app "$APP_SOURCE_CODE_PATH"
+        run: databricks sync /app "$APP_SOURCE_CODE_PATH"
       
       - name: Deploy the App
         run: databricks apps deploy "$APP_NAME" --source-code-path "$APP_SOURCE_CODE_PATH"
