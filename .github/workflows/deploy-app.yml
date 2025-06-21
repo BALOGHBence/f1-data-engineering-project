@@ -3,7 +3,7 @@ name: Deploy Dash App
 on:
 
   push:
-  
+
     branches:
       - 'main'
       - 'dev'
@@ -27,7 +27,7 @@ jobs:
 
       - name: Authenticate Databricks CLI
         run: |
-          databricks configure 
+          databricks configure \
             --host $DATABRICKS_HOST \
             --token $DATABRICKS_TOKEN
 
