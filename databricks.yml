@@ -18,14 +18,14 @@ targets:
     mode: development
     default: true
     workspace:
-      host: ${env.DATABRICKS_HOST}  
+      host: ${var.DATABRICKS_HOST}  
 
   prod:
     mode: production
     workspace:
-      host: ${env.DATABRICKS_HOST}
-      # We explicitly deploy to /Workspace/Users/bence.balogh@datapao.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/bence.balogh@datapao.com/.bundle/${bundle.name}/${bundle.target}
+      host: ${var.DATABRICKS_HOST}
+      # We explicitly deploy to /Workspace/Users/xxx@xxx.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - user_name: bence.balogh@datapao.com
+      - user_name: ${workspace.current_user.userName}
         level: CAN_MANAGE
