@@ -19,7 +19,30 @@
 
 Historical data about F1 races is available at <https://ergast.com/mrd/>. To get the data, you can use the API or download the files manually as a compressed folder alongside a user manual and the entity relationship diagram. All of this can be found in the `data` folder of this repository. Before using this data, you should read the 'terms ans conditions' section of the Ergast API.
 
-### Project requirements
+## Installation
+
+```shell
+poetry lock
+poetry install [--with docs]
+```
+
+On MacOS:
+
+```shell
+cd app
+python3 -m venv .venv
+source .venv/bin/activate
+deactivate
+```
+
+On Windows
+
+```shell
+cd app
+python -m venv .venv
+.venv/scripts/activate
+deactivate
+```
 
 ### Solution architecture
 
