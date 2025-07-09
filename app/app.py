@@ -105,6 +105,7 @@ app.layout = dbc.Container([
     dcc.Store(id='page-load-trigger', data=0),
     dbc.Row([
         dbc.Col([
+            html.A("Open Documentation", href="static/docs/index.html", target="_blank"),
             dcc.Dropdown(years, years[0], id='dropdown-years'),
             dcc.Tabs(
                 id="tabs-standings", value='tab-drivers-standings', 
