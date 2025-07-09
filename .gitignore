@@ -177,4 +177,7 @@ cython_debug/
 scratch/**
 !scratch/README.md
 
+# Directory for docs in app folder
+app/static/docs
+
 .databricks/
