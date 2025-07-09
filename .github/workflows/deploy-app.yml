@@ -56,7 +56,7 @@ jobs:
         run: databricks bundle deploy -t prod
 
       - name: Sync App Source Code
-        run: databricks sync ./app "$APP_SOURCE_CODE_PATH"
+        run: databricks sync ./app "$APP_SOURCE_CODE_PATH" --include "static/docs/**"
       
       - name: Deploy the App
         run: databricks apps deploy "$APP_NAME" --source-code-path "$APP_SOURCE_CODE_PATH"
