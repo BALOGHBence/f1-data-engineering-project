@@ -5,11 +5,17 @@ version = "0.0.1"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.11,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"
 requests = "^2.32.3"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.2.3"
 
 [build-system]
 requires = ["poetry-core"]
